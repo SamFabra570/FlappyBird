@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MoverPajaro : MonoBehaviour
 {
+    [SerializeField] GameObject manager;
+    GameManager gameManager;
+
     [SerializeField] private Transform pajaro;
     [SerializeField] private Rigidbody rb;
 
@@ -18,6 +21,7 @@ public class MoverPajaro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = manager.GetComponent<GameManager>();
         rb = GetComponent<Rigidbody>();
 
         fuerza = new Vector3(0, fuerzaSalto, 0);
@@ -39,5 +43,10 @@ public class MoverPajaro : MonoBehaviour
     private void Saltar()
     {
         rb.AddForce(fuerza, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        gameManager.GameOver();
     }
 }

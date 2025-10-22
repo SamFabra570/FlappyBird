@@ -24,13 +24,11 @@ public class UIController : MonoBehaviour
             UpdateScore();            
         }
 
-        scoreText.text = ("Score: " + scoreVal);
+        scoreText.text = ("Puntos: " + scoreVal);
     }
 
     private void UpdateScore()
     {
-        scoreVal = gameManager.score;
-
-        
+        scoreVal = gameManager.score;        
     }
 }
