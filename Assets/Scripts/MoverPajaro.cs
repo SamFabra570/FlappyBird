@@ -30,13 +30,20 @@ public class MoverPajaro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pajaro.Translate(new Vector3(0, 0, velocidad) * Time.deltaTime);
-
-        rb.AddForce(new Vector3(0, -1, 0) * rb.mass * grav);
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (gameManager.playing == true)
         {
-            Saltar();
+            pajaro.Translate(new Vector3(0, 0, velocidad) * Time.deltaTime);
+
+            rb.AddForce(new Vector3(0, -1, 0) * rb.mass * grav);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Saltar();
+            }
+        }
+        else if (gameManager.playing == false)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
