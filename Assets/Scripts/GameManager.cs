@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,8 +14,7 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        playing = true;
+    {        
         UI = GetComponent<UIController>();
     }
 
@@ -33,9 +33,18 @@ public class GameManager : MonoBehaviour
         UI.quitButton.SetActive(true);
     }
 
+    public void StartGame()
+    {
+        UI.startButton.SetActive(false);
+        UI.panel.SetActive(false);
+        playing = true;
+        
+    }
+
     public void RestartGame()
     {
         //restart scene
+        SceneManager.LoadScene("Main");
     }
     
     public void QuitGame()

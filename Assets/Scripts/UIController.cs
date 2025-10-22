@@ -9,7 +9,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     public GameObject gameOverImage;
     public GameObject quitButton;
+    public GameObject startButton;
     public GameObject retryButton;
+    public GameObject panel;
     private GameManager gameManager;
     
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoverPajaro : MonoBehaviour
+public class BirdController : MonoBehaviour
 {
     [SerializeField] GameObject manager;
     GameManager gameManager;
@@ -32,6 +32,7 @@ public class MoverPajaro : MonoBehaviour
     {
         if (gameManager.playing == true)
         {
+            rb.constraints = RigidbodyConstraints.None;
             pajaro.Translate(new Vector3(0, 0, velocidad) * Time.deltaTime);
 
             rb.AddForce(new Vector3(0, -1, 0) * rb.mass * grav);
