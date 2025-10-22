@@ -6,7 +6,7 @@ public class Tubo : MonoBehaviour
 {
     [SerializeField] private GameObject manager;
     private GameManager gameManager;
-    private int score = 0;
+    private static int score;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +17,16 @@ public class Tubo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (score > gameManager.score)
-        {
-            gameManager.score = score;
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        score++;
+        score++;        
+
+        if (score > gameManager.score)
+        {
+            gameManager.score = score;
+        }
     }
 }
