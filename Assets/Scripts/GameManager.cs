@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private UIController UI;
+
     public int score = 0;
 
     public bool playing = false;
@@ -12,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playing = true;
+        UI = GetComponent<UIController>();
     }
 
     // Update is called once per frame
@@ -24,5 +28,19 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("game over");
         playing = false;
+        UI.gameOverImage.SetActive(true);
+        UI.retryButton.SetActive(true);
+        UI.quitButton.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        //restart scene
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
