@@ -17,4 +17,10 @@ public class Tubo : MonoBehaviour
     {
         gameManager.score++;
     }
+
+    //use this for object pooling
+    private void OnBecameInvisible()
+    {
+        
+    }
 }
