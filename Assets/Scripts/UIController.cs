@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
             UpdateScore();            
         }
 
-        scoreText.text = ("Puntos: " + scoreVal);
+        scoreText.text = ("Score: " + scoreVal);
 
         if (highScoreVal != gameManager.highScore)
         {

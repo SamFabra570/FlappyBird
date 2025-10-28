@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
         UI = GetComponent<UIController>();
         
         highScore = PlayerPrefs.GetFloat("highScore");
-        //UI.resetHighScoreButton.SetActive(true);
     }
 
     // Update is called once per frame
@@ -72,7 +71,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("high score updated");
 
-        
+        highScore = PlayerPrefs.GetFloat("highScore");
         UI.UpdateHighScoreText(highScore);        
     }
 

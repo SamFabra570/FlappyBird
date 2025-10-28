@@ -54,7 +54,7 @@ public class BirdController : MonoBehaviour
     {
         rb.AddForce(fuerza, ForceMode.Impulse);
 
-        jumpSound.Play();
+        //jumpSound.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
