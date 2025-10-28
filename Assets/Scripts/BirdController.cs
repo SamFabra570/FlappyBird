@@ -15,6 +15,8 @@ public class BirdController : MonoBehaviour
     [SerializeField] float velocidad = 1;
     [SerializeField] float grav = 1;
 
+    public AudioSource jumpSound;
+
 
     //[SerializeField] private Transform pajaro;
 
@@ -51,6 +53,8 @@ public class BirdController : MonoBehaviour
     private void Saltar()
     {
         rb.AddForce(fuerza, ForceMode.Impulse);
+
+        jumpSound.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
