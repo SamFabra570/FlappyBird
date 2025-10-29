@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4383686903163001572}
   - component: {fileID: 315751387960208484}
-  - component: {fileID: 8616126149927944761}
+  - component: {fileID: 6737614516588070663}
   m_Layer: 0
   m_Name: Tubo
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2707661129643956033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56,7 +56,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 4.768038, z: 0.96709824}
   m_Center: {x: 0, y: 1.2854943, z: 2.8334155}
---- !u!114 &8616126149927944761
+--- !u!114 &6737614516588070663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,10 +65,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2707661129643956033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612c5e6134854a746841b2fd95db23dd, type: 3}
+  m_Script: {fileID: 11500000, guid: e8ec687f022f54a4d9ccc508c69a5273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  speed: 2
 --- !u!1 &2837879847222491176
 GameObject:
   m_ObjectHideFlags: 0

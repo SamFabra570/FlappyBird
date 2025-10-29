@@ -35,7 +35,7 @@ public class BirdController : MonoBehaviour
         if (gameManager.playing == true)
         {
             rb.constraints = RigidbodyConstraints.None;
-            pajaro.Translate(new Vector3(0, 0, velocidad) * Time.deltaTime);
+            //pajaro.Translate(new Vector3(0, 0, velocidad) * Time.deltaTime);
 
             rb.AddForce(new Vector3(0, -1, 0) * rb.mass * grav);
 
