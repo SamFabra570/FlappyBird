@@ -6,15 +6,23 @@ public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool SharedInstance;
 
+    public bool poolCreated = false;
+
     private List<GameObject> pooledObjects;
 
     public GameObject objectToPool;
     public int poolSize = 6;
 
+    [SerializeField] private float spawnSpaceInterval = 4.5f;
+    private float spawnHeight;
+
+    
+
     private void Awake()
     {
         SharedInstance = this;
     }
+
 
     private void Start()
     {
@@ -27,22 +35,39 @@ public class ObjectPool : MonoBehaviour
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
+
+        poolCreated = true;
     }
 
-    public GameObject GetPooledObject()
+    private void Update()
     {
-        for (int i = 0; i < poolSize; i++)
+        
+        for (int y = 0; y < poolSize; y++)
         {
-            if (!pooledObjects[i].activeInHierarchy)
-            {
-                return pooledObjects[i];
-            }
-            
+
+
+            SpawnPooledObject(y);
+
+
         }
 
-        return null;
 
+    }
+
+    public void SpawnPooledObject(int index)
+    {
         
+        if (index >= 1)
+        {
+            int rnd = Random.Range(-1, 1);
+            pooledObjects[index].gameObject.transform.position = new Vector3(0, (rnd), (spawnSpaceInterval * index));
+            pooledObjects[index].gameObject.SetActive(true);
+        }
+        else
+        {
+            pooledObjects[index].gameObject.transform.position = new Vector3(0, 0, (spawnSpaceInterval * index));
+            pooledObjects[index].gameObject.SetActive(true);
+        } 
     }
 
 

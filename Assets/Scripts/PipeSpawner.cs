@@ -5,11 +5,13 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     private ObjectPool objectPool;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject pipe = ObjectPool.SharedInstance.GetPooledObject();
+        
+        
     }
 
     // Update is called once per frame
@@ -17,4 +19,12 @@ public class PipeSpawner : MonoBehaviour
     {
         
     }
+
+    //public void SpawnPipes()
+    //{
+    //    Debug.Log("pipe spawned and set pos");
+    //    GameObject pipe = ObjectPool.SharedInstance.GetPooledObject();
+    //    pipe.transform.position = new Vector3(0, 0, spawnSpaceInterval);
+    //    pipe.SetActive(true);
+    //}
 }
