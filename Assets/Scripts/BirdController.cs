@@ -17,14 +17,14 @@ public class BirdController : MonoBehaviour
 
     public AudioSource jumpSound;
 
-
-    //[SerializeField] private Transform pajaro;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = manager.GetComponent<GameManager>();
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
         fuerza = new Vector3(0, fuerzaSalto, 0);
     }
@@ -48,12 +48,28 @@ public class BirdController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
+
+        if (rb.velocity.y < -0)
+        {
+            Debug.Log("falling");
+            
+            animator.SetBool("falling", true);
+            animator.SetBool("jumping", false);
+        }
+        else if (rb.velocity.y > 0)
+        {
+            Debug.Log("jumping");
+            animator.SetBool("jumping", true);
+            animator.SetBool("falling", false);            
+        }
     }
 
     private void Saltar()
     {
         rb.AddForce(fuerza, ForceMode.Impulse);
-
+        //animator.ResetTrigger("Fall");
+        //animator.SetTrigger("Jump");
+        
         //jumpSound.Play();
     }
 

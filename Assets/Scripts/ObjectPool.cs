@@ -9,10 +9,11 @@ public class ObjectPool : MonoBehaviour
 
     public bool poolCreated = false;
 
-    private List<GameObject> pooledObjects;
+    public List<GameObject> pooledObjects;
 
     public GameObject objectToPool;
     public int poolSize = 6;
+    public int index = 0;
 
     public int min = -2;
     public int max = 2;
@@ -34,13 +35,13 @@ public class ObjectPool : MonoBehaviour
         pooledObjects = new List<GameObject>();
         GameObject obj;
 
-        for (int i = 0; i < poolSize; i++)
+        for (index = 0; index < poolSize; index++)
         {
             obj = Instantiate(objectToPool);
             obj.SetActive(false);
             pooledObjects.Add(obj);
 
-            SpawnPooledObject(i);
+            SpawnPooledObject(index);
         }
 
         poolCreated = true;

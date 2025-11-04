@@ -400,8 +400,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolCreated: 0
+  pooledObjects: []
   objectToPool: {fileID: 2707661129643956033, guid: 55516586dc750f84c85a691ee3a81599, type: 3}
   poolSize: 6
+  index: 0
   min: -2
   max: 2
   spawnSpaceInterval: 4
@@ -1015,6 +1017,7 @@ GameObject:
   - component: {fileID: 616177097}
   - component: {fileID: 616177102}
   - component: {fileID: 616177103}
+  - component: {fileID: 616177104}
   m_Layer: 0
   m_Name: el pajaro
   m_TagString: Untagged
@@ -1155,6 +1158,27 @@ MonoBehaviour:
   velocidad: 2
   grav: 0.3
   jumpSound: {fileID: 0}
+--- !u!95 &616177104
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616177095}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbc9293fc155ffb4a8e274c20ea47ce5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &664255636
 GameObject:
   m_ObjectHideFlags: 0
