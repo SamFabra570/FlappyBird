@@ -399,8 +399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01b7ce47bc4de54fb7e3e8c3349e041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolCreated: 0
   objectToPool: {fileID: 2707661129643956033, guid: 55516586dc750f84c85a691ee3a81599, type: 3}
-  poolSize: 10
+  poolSize: 6
+  min: -2
+  max: 2
+  spawnSpaceInterval: 4
 --- !u!114 &188427125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef65f15a3962364ea10cbdab39ef6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSpaceInterval: 4.5
 --- !u!1 &408935495
 GameObject:
   m_ObjectHideFlags: 0

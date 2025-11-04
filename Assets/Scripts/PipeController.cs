@@ -19,7 +19,13 @@ public class PipeController : MonoBehaviour
 
     private void Update()
     {
-        transform.position += new Vector3(0f, 0f, -speed * Time.deltaTime);
+        if ( gameManager.playing)
+        {
+            transform.position += new Vector3(0f, 0f, -speed * Time.deltaTime);
+        }
+
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)

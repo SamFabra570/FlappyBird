@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
@@ -13,10 +14,14 @@ public class ObjectPool : MonoBehaviour
     public GameObject objectToPool;
     public int poolSize = 6;
 
-    [SerializeField] private float spawnSpaceInterval = 4.5f;
+    public int min = -2;
+    public int max = 2;
+
+    [SerializeField] private float spawnSpaceInterval = 4f;
     private float spawnHeight;
 
-    
+    private int oldRnd = 0;
+    private int rnd;
 
     private void Awake()
     {
@@ -34,6 +39,8 @@ public class ObjectPool : MonoBehaviour
             obj = Instantiate(objectToPool);
             obj.SetActive(false);
             pooledObjects.Add(obj);
+
+            SpawnPooledObject(i);
         }
 
         poolCreated = true;
@@ -42,16 +49,7 @@ public class ObjectPool : MonoBehaviour
     private void Update()
     {
         
-        for (int y = 0; y < poolSize; y++)
-        {
-
-
-            SpawnPooledObject(y);
-
-
-        }
-
-
+        
     }
 
     public void SpawnPooledObject(int index)
@@ -59,15 +57,25 @@ public class ObjectPool : MonoBehaviour
         
         if (index >= 1)
         {
-            int rnd = Random.Range(-1, 1);
-            pooledObjects[index].gameObject.transform.position = new Vector3(0, (rnd), (spawnSpaceInterval * index));
+            rnd = Random.Range(min, max);
+            
+
+            if (oldRnd == rnd)
+            {
+                rnd = Random.Range(min, max);
+            }
+
+
+            pooledObjects[index].gameObject.transform.position = new Vector3(0, (rnd + 1), (spawnSpaceInterval * index));
             pooledObjects[index].gameObject.SetActive(true);
         }
         else
         {
             pooledObjects[index].gameObject.transform.position = new Vector3(0, 0, (spawnSpaceInterval * index));
             pooledObjects[index].gameObject.SetActive(true);
-        } 
+        }
+
+        oldRnd = rnd;
     }
 
 
