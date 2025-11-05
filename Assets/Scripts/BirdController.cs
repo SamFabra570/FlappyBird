@@ -70,7 +70,7 @@ public class BirdController : MonoBehaviour
         //animator.ResetTrigger("Fall");
         //animator.SetTrigger("Jump");
         
-        //jumpSound.Play();
+        jumpSound.Play();
     }
 
     private void OnCollisionEnter(Collision collision)

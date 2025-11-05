@@ -17,6 +17,8 @@ public class PipeController : MonoBehaviour
 
     [SerializeField] private float speed = 1.0f;
 
+    public AudioSource scoreSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class PipeController : MonoBehaviour
             transform.position += new Vector3(0f, 0f, -speed * Time.deltaTime);
         }
 
-        if (transform.position.z <= -10)
+        if (transform.position.z <= -14)
         {
             rnd = Random.Range(-2, 2);
 
@@ -43,7 +45,7 @@ public class PipeController : MonoBehaviour
                 rnd = Random.Range(-2, 2);
             }
 
-            pipe.transform.position = new Vector3(0, rnd, 14.83f);
+            pipe.transform.position = new Vector3(0, rnd, 10f);
         }
 
         oldRnd = rnd;
@@ -53,6 +55,8 @@ public class PipeController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         gameManager.score++;
+
+        scoreSound.Play();
     }
 
     
