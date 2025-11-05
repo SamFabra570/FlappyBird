@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     public GameObject retryButton;
     public GameObject resetHighScoreButton;
     public GameObject panel;
+    public GameObject titleText;
     private GameManager gameManager;
     
 

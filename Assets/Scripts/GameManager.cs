@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         UI.startButton.SetActive(false);
         UI.resetHighScoreButton.SetActive(false);
         UI.panel.SetActive(false);
+        UI.titleText.SetActive(false);
         playing = true;
 
     }
