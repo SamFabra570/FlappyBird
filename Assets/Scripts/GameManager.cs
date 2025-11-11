@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float highScore = 0;
 
     public bool playing = false;
+    public bool inMenu = true;
 
     
 
@@ -26,7 +27,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (playing == false && inMenu)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGame();
+            } 
+        }
     }
 
     public void GameOver()
@@ -52,6 +59,7 @@ public class GameManager : MonoBehaviour
         UI.panel.SetActive(false);
         UI.titleText.SetActive(false);
         playing = true;
+        inMenu = false;
 
     }
 

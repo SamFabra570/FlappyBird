@@ -39,7 +39,7 @@ public class BirdController : MonoBehaviour
 
             rb.AddForce(new Vector3(0, -1, 0) * rb.mass * grav);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 Saltar();
             }
