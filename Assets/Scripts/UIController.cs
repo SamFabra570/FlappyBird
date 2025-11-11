@@ -15,6 +15,12 @@ public class UIController : MonoBehaviour
     public GameObject resetHighScoreButton;
     public GameObject panel;
     public GameObject titleText;
+    public GameObject volumeSettings;
+
+    public Slider master;
+    public Slider music;
+    public Slider sfx;
+
     private GameManager gameManager;
     
 

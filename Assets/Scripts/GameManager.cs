@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public bool playing = false;
     public bool inMenu = true;
 
-    
+    private float masterVol;
+    private float musicVol;
+    private float sfxVol;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
         UI = GetComponent<UIController>();
         
         highScore = PlayerPrefs.GetFloat("highScore");
+
+        LoadVolumeSettings();
     }
 
     // Update is called once per frame
@@ -58,6 +62,7 @@ public class GameManager : MonoBehaviour
         UI.resetHighScoreButton.SetActive(false);
         UI.panel.SetActive(false);
         UI.titleText.SetActive(false);
+        UI.volumeSettings.SetActive(false);
         playing = true;
         inMenu = false;
 
@@ -92,5 +97,17 @@ public class GameManager : MonoBehaviour
         highScore = PlayerPrefs.GetFloat("highScore");
 
         UI.UpdateHighScoreText(highScore);
+    }
+
+    private void LoadVolumeSettings()
+    {
+        masterVol = PlayerPrefs.GetFloat("MasterVol");
+        UI.master.value = masterVol;
+
+        musicVol = PlayerPrefs.GetFloat("MusicVol");
+        UI.music.value = musicVol;
+
+        sfxVol = PlayerPrefs.GetFloat("SFXVol");
+        UI.sfx.value = sfxVol;        
     }
 }

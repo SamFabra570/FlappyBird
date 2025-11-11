@@ -804,6 +804,10 @@ MonoBehaviour:
   resetHighScoreButton: {fileID: 1456832963}
   panel: {fileID: 927697079}
   titleText: {fileID: 71259485}
+  volumeSettings: {fileID: 1271606718}
+  master: {fileID: 154740913}
+  music: {fileID: 1434495439}
+  sfx: {fileID: 958929750}
 --- !u!114 &188427122
 MonoBehaviour:
   m_ObjectHideFlags: 0
