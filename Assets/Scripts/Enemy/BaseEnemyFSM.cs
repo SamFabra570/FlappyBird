@@ -148,8 +148,7 @@ public class BaseEnemyFSM : MonoBehaviour
     void BodyAttack()
     {
         Vector3 dir = Vector3.Normalize(transform.forward);
-
-        
+                
 
         agent_.isStopped = true;
         //atacar o algo
