@@ -18,11 +18,12 @@ public class BaseEnemyFSM : MonoBehaviour
     public Sight sight_sensor_;
     public NavMeshAgent agent_;
 
-    public float attack_distance_ = 0.0f;
+    public float attack_distance_ = 2.0f;
 
     public float stop_attack_distance_multiplier = 1.2f;
 
     public float stun_time_ = 2.0f;
+
 
     private void Awake()
     {
@@ -80,7 +81,7 @@ public class BaseEnemyFSM : MonoBehaviour
     void MindPursuit()
     {
         BodyPursuit();
-        Debug.Log("Following");
+        //Debug.Log("Following");
 
         if(sight_sensor_.detected_object_ == null)
         {
@@ -91,14 +92,16 @@ public class BaseEnemyFSM : MonoBehaviour
         float distance_to_target = Vector3.Distance(transform.position, sight_sensor_.detected_object_.transform.position);
         if(distance_to_target <= attack_distance_)
         {
+            Debug.Log("switching to attack");
             current_mind_state_ = MindStates.kAttack;
         }
         
     }
     void MindAttack()
     {
-        BodyAttack();
         Debug.Log("Attacking");
+        BodyAttack();
+        
 
         if (sight_sensor_.detected_object_ == null)
         {
@@ -125,7 +128,13 @@ public class BaseEnemyFSM : MonoBehaviour
     void BodySeek()
     {
         //rotate o algo
+        if (current_mind_state_ == MindStates.kSeek)
+        {
+            Debug.Log("trying to turnnnnn");
+            transform.Rotate(new Vector3(0, 10, 0));
 
+        }
+        
     }
     void BodyPursuit()
     {
@@ -138,8 +147,13 @@ public class BaseEnemyFSM : MonoBehaviour
     }
     void BodyAttack()
     {
+        Vector3 dir = Vector3.Normalize(transform.forward);
+
+        
+
         agent_.isStopped = true;
         //atacar o algo
+        sight_sensor_.detected_object_.attachedRigidbody.AddForce(dir * 1500);
     }
     void BodyFlee()
     {

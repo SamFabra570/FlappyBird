@@ -42,13 +42,13 @@ public class Sight : MonoBehaviour
             {
                 if(!Physics.Linecast(transform.position, single_collider.bounds.center, out RaycastHit hit,  obstacles_layer_))
                 {
-                    Debug.DrawLine(transform.position, single_collider.bounds.center, Color.green);
+                    Debug.DrawLine(transform.position, single_collider.bounds.center, Color.red);
                     detected_object_ = single_collider;
                     break;
                 }
                 else
                 {
-                    Debug.DrawLine(transform.position, hit.point, Color.red);
+                    Debug.DrawLine(transform.position, hit.point, Color.green);
                 }
             }
         }
@@ -56,11 +56,6 @@ public class Sight : MonoBehaviour
     }
 
     private void OnDrawGizmos()
-    {
-        
-    }
-
-    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
 
@@ -71,5 +66,10 @@ public class Sight : MonoBehaviour
 
         Vector3 left_dir = Quaternion.Euler(0.0f, -angle_, 0.0f) * transform.forward;
         Gizmos.DrawRay(transform.position, left_dir * distance_);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        
     }
 }
